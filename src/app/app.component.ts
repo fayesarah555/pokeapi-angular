@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
-
+// import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
 @Component({
   selector: 'app-root',
   standalone: true,

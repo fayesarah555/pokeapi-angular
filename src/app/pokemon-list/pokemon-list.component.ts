@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonService } from '../pokemon.service';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-pokemon-list',
   standalone: true,
-  imports: [CommonModule], // Add HttpClientModule here
+  imports: [CommonModule, RouterLink], // Add HttpClientModule here
   template: `
    <h2>Pokémon List</h2>
     
@@ -19,7 +19,9 @@ import { PokemonService } from '../pokemon.service';
       <tbody>
         <tr *ngFor="let pokemon of pokemonList">
           <td>{{ pokemon.name }}</td>
-          <td><a [href]="pokemon.url" target="_blank">Details</a></td>
+          <td>
+           <button> <a routerLink="/pokemon-detail">View Details </a></button>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -39,8 +41,17 @@ export class PokemonListComponent implements OnInit {
     console.log("before",this.pokemonList )
     this.pokemonService.getPokemonList()
       .subscribe(response => {
+        console.log("la reponse ",response.results )
         this.pokemonList = response.results;
       });
       console.log("after",this.pokemonList )
   }
+  getPokemonDetails(name: string): void {
+    console.log("before2",this.pokemonList )
+    this.pokemonService.getPokemonDetails(name)
+      .subscribe(detail => {
+        console.log("le detail normalement",detail); 
+      });
+  }
+  
 }
