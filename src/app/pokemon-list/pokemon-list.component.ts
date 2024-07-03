@@ -26,7 +26,7 @@ import { RouterLink } from '@angular/router';
       </tbody>
     </table>
   `,
-  styleUrls: ['./pokemon-list.component.scss'] // Adjust if needed
+  styleUrls: ['./pokemon-list.component.scss'] 
 })
 export class PokemonListComponent implements OnInit {
   pokemonList: any[] = [];
