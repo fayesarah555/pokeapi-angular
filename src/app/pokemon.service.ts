@@ -18,7 +18,8 @@ export class PokemonService {
     return this.http.get<any>(`${this.apiUrl}/${name}`);
   }
 
-  getPokemonByName(name: string) {
-    return this.http.get(`${this.apiUrl}/${name}`).toPromise();
+  getPokemonByName(name: string): Observable<any> {
+    const url = `${this.apiUrl}${name}`;
+    return this.http.get(url);
   }
 }

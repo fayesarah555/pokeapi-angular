@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute , RouterLink} from '@angular/router';
 import { PokemonService } from '../pokemon.service';
 import {UpperCasePipe} from "@angular/common";
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-pokemon-detail',
   standalone:true,
-  imports: [RouterLink, UpperCasePipe],
+  imports: [RouterLink, UpperCasePipe, CommonModule],
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss']
 })
@@ -21,7 +21,7 @@ export class PokemonDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const pokemonName = params['name'];
-      console.log("le name la ",pokemonName)
+      console.log('Pokemon name:', pokemonName); 
       if (pokemonName) {
         this.getSinglePokemon(pokemonName);
       } else {
@@ -29,6 +29,7 @@ export class PokemonDetailComponent implements OnInit {
       }
     });
   }
+  
 
   async getSinglePokemon(name: string) {
     try {
