@@ -20,7 +20,7 @@ import { RouterLink } from '@angular/router';
         <tr *ngFor="let pokemon of pokemonList">
           <td>{{ pokemon.name }}</td>
           <td>
-           <button> <a routerLink="/pokemon-detail">View Details </a></button>
+           <button> <a routerLink="/pokemon/:name">View Details </a></button>
           </td>
         </tr>
       </tbody>
